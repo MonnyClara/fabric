@@ -162,6 +162,7 @@ func (vm *DockerVM) createContainer(ctxt context.Context, client dockerClient,
 	config := docker.Config{Cmd: args, Image: imageID, Env: env, AttachStdout: attachStdout, AttachStderr: attachStdout}
 	copts := docker.CreateContainerOptions{Name: containerID, Config: &config, HostConfig: getDockerHostConfig()}
 	dockerLogger.Debugf("Create container: %s", containerID)
+	fmt.Println("fabric/core/container/dockercontroller/dockercontroller.go/createContainer")
 	_, err := client.CreateContainer(copts)
 	if err != nil {
 		return err
@@ -173,6 +174,7 @@ func (vm *DockerVM) createContainer(ctxt context.Context, client dockerClient,
 func (vm *DockerVM) deployImage(client dockerClient, ccid ccintf.CCID,
 	args []string, env []string, reader io.Reader) error {
 	id, err := vm.GetVMName(ccid, formatImageName)
+	fmt.Println("fabric/core/container/dockercontroller/dockercontroller.go/deployImage")
 	if err != nil {
 		return err
 	}
@@ -201,7 +203,7 @@ func (vm *DockerVM) deployImage(client dockerClient, ccid ccintf.CCID,
 //talk to docker daemon using docker Client and build the image
 func (vm *DockerVM) Deploy(ctxt context.Context, ccid ccintf.CCID,
 	args []string, env []string, reader io.Reader) error {
-
+	fmt.Println("fabric/core/container/dockercontroller/dockercontroller.go/Deploy")
 	client, err := vm.getClientFnc()
 	switch err {
 	case nil:
@@ -218,6 +220,7 @@ func (vm *DockerVM) Deploy(ctxt context.Context, ccid ccintf.CCID,
 func (vm *DockerVM) Start(ctxt context.Context, ccid ccintf.CCID,
 	args []string, env []string, filesToUpload map[string][]byte, builder container.BuildSpecFactory, prelaunchFunc container.PrelaunchFunc) error {
 	imageID, err := vm.GetVMName(ccid, formatImageName)
+	fmt.Println("fabric/core/container/dockercontroller/dockercontroller.go/Start")
 	if err != nil {
 		return err
 	}
