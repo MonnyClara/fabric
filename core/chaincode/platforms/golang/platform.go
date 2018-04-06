@@ -502,7 +502,7 @@ func getLDFlagsOpts() string {
 
 func (goPlatform *Platform) GenerateDockerBuild(cds *pb.ChaincodeDeploymentSpec, tw *tar.Writer) error {
 	
-	fmt.Printlnl("fabric/core/chaincode/platforms/golang/platform.go/GenerateDockerBuild")
+	fmt.Println("fabric/core/chaincode/platforms/golang/platform.go/GenerateDockerBuild")
 	spec := cds.ChaincodeSpec
 
 	pkgname, err := decodeUrl(spec)
