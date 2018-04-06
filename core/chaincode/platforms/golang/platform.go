@@ -479,7 +479,7 @@ func (goPlatform *Platform) GetDeploymentPayload(spec *pb.ChaincodeSpec) ([]byte
 }
 
 func (goPlatform *Platform) GenerateDockerfile(cds *pb.ChaincodeDeploymentSpec) (string, error) {
-	fmt.Printlnl("fabric/core/chaincode/platforms/golang/platform.go/GenerateDockerfile")
+	fmt.Println("fabric/core/chaincode/platforms/golang/platform.go/GenerateDockerfile")
 	var buf []string
 
 	buf = append(buf, "FROM "+cutil.GetDockerfileFromConfig("chaincode.golang.runtime"))
