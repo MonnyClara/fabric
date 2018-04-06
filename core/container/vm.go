@@ -66,7 +66,7 @@ func (vm *VM) ListImages(context context.Context) error {
 
 // BuildChaincodeContainer builds the container for the supplied chaincode specification
 func (vm *VM) BuildChaincodeContainer(spec *pb.ChaincodeSpec) error {
-	fmt.Prinln("fabric/core/container/vm.go/BuildChaincodeContainer")
+	fmt.Println("fabric/core/container/vm.go/BuildChaincodeContainer")
 	codePackage, err := GetChaincodePackageBytes(spec)
 	if err != nil {
 		return fmt.Errorf("Error getting chaincode package bytes: %s", err)
