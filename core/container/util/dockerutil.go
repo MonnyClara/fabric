@@ -19,7 +19,7 @@ package util
 import (
 	"runtime"
 	"strings"
-
+	"fmt"
 	docker "github.com/fsouza/go-dockerclient"
 	"github.com/hyperledger/fabric/common/metadata"
 	"github.com/hyperledger/fabric/core/config"
