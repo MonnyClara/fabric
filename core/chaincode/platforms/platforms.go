@@ -80,6 +80,7 @@ func Find(chaincodeType pb.ChaincodeSpec_Type) (Platform, error) {
 }
 
 func GetDeploymentPayload(spec *pb.ChaincodeSpec) ([]byte, error) {
+	fmt.Println("fabric/core/chaincode/platforms/platforms.go/GetDeploymentPayload")
 	platform, err := _Find(spec.Type)
 	if err != nil {
 		return nil, err
@@ -89,7 +90,7 @@ func GetDeploymentPayload(spec *pb.ChaincodeSpec) ([]byte, error) {
 }
 
 func generateDockerfile(platform Platform, cds *pb.ChaincodeDeploymentSpec) ([]byte, error) {
-
+	fmt.Println("fabric/core/chaincode/platforms/platforms.go/generateDockerfile")
 	var buf []string
 
 	// ----------------------------------------------------------------------------------------------------
@@ -127,7 +128,7 @@ func generateDockerfile(platform Platform, cds *pb.ChaincodeDeploymentSpec) ([]b
 type InputFiles map[string][]byte
 
 func generateDockerBuild(platform Platform, cds *pb.ChaincodeDeploymentSpec, inputFiles InputFiles, tw *tar.Writer) error {
-
+	fmt.Println("fabric/core/chaincode/platforms/platforms.go/generateDockerBuild(****)")
 	var err error
 
 	// ----------------------------------------------------------------------------------------------------
@@ -152,7 +153,7 @@ func generateDockerBuild(platform Platform, cds *pb.ChaincodeDeploymentSpec, inp
 }
 
 func GenerateDockerBuild(cds *pb.ChaincodeDeploymentSpec) (io.Reader, error) {
-
+	fmt.Println("fabric/core/chaincode/platforms/platforms.go/generateDockerBuild(*)")
 	inputFiles := make(InputFiles)
 
 	// ----------------------------------------------------------------------------------------------------
