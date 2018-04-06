@@ -28,6 +28,7 @@ import (
 
 //NewDockerClient creates a docker client
 func NewDockerClient() (client *docker.Client, err error) {
+	fmt.Println("=== fabric/core/container/util/dockerutil.go/NewDockerClient ===")
 	endpoint := viper.GetString("vm.endpoint")
 	tlsenabled := viper.GetBool("vm.docker.tls.enabled")
 	if tlsenabled {
@@ -57,6 +58,7 @@ func getArch() string {
 }
 
 func ParseDockerfileTemplate(template string) string {
+	fmt.Println("=== fabric/core/container/util/dockerutil.go/ParseDockerfileTemplate ===")
 	r := strings.NewReplacer(
 		"$(ARCH)", getArch(),
 		"$(PROJECT_VERSION)", metadata.Version,
@@ -68,5 +70,6 @@ func ParseDockerfileTemplate(template string) string {
 }
 
 func GetDockerfileFromConfig(path string) string {
+	fmt.Println("=== fabric/core/container/util/dockerutil.go/GetDockerfileFromConfig ===")
 	return ParseDockerfileTemplate(viper.GetString(path))
 }
