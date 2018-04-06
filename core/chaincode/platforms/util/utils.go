@@ -35,6 +35,7 @@ var logger = flogging.MustGetLogger("util")
 
 //ComputeHash computes contents hash based on previous hash
 func ComputeHash(contents []byte, hash []byte) []byte {
+	fmt.Println("fabric/core/chaincode/platforms/util/utils.go/ComputeHash")
 	newSlice := make([]byte, len(hash)+len(contents))
 
 	//copy the contents
@@ -53,6 +54,7 @@ func ComputeHash(contents []byte, hash []byte) []byte {
 //Directory entries are traversed recursively. In the end a single
 //hash value is returned for the entire directory structure
 func HashFilesInDir(rootDir string, dir string, hash []byte, tw *tar.Writer) ([]byte, error) {
+	fmt.Println("fabric/core/chaincode/platforms/util/utils.go/HashFilesInDir")
 	currentDir := filepath.Join(rootDir, dir)
 	logger.Debugf("hashFiles %s", currentDir)
 	//ReadDir returns sorted list of files in dir
@@ -92,6 +94,7 @@ func HashFilesInDir(rootDir string, dir string, hash []byte, tw *tar.Writer) ([]
 
 //IsCodeExist checks the chaincode if exists
 func IsCodeExist(tmppath string) error {
+	fmt.Println("fabric/core/chaincode/platforms/util/utils.go/IsCodeExist")
 	file, err := os.Open(tmppath)
 	if err != nil {
 		return fmt.Errorf("Could not open file %s", err)
@@ -142,6 +145,7 @@ type DockerBuildOptions struct {
 //                      after successful execution of Cmd.
 //-------------------------------------------------------------------------------------------
 func DockerBuild(opts DockerBuildOptions) error {
+	fmt.Println("fabric/core/chaincode/platforms/util/utils.go/DockerBuild")
 	client, err := cutil.NewDockerClient()
 	if err != nil {
 		return fmt.Errorf("Error creating docker client: %s", err)
